@@ -11,6 +11,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-on-rails": "11.3.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
