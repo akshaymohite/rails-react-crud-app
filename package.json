@@ -12,6 +12,8 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-on-rails": "11.3.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
