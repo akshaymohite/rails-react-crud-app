@@ -5,19 +5,20 @@ import {
   Route,
 } from "react-router-dom";
 import HelloWorld from './bundles/HelloWorld/components/HelloWorld';
+import Posts from './bundles/posts/index';
+import PostDetails from './bundles/posts/PostDetails';
 
 export default () => {
   return (
     <Switch>
       <Route exact path="/">
-        <h3>Root Path Component</h3>
+        <Posts />
       </Route>
-      <Route path="/hello_world">
-        <h3>Hello World Component</h3>
-      </Route>
-      <Route path="/bye_world">
-        <h3>Bye World Component</h3>
-      </Route>
+      <Route
+        path="/posts/:id"
+        exact
+        component={PostDetails}
+       />
     </Switch>
   );
 }
