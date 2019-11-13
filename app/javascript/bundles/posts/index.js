@@ -1,6 +1,6 @@
 // app/javascript/bundles/posts/index.js
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class PostsList extends React.Component {
   constructor(props) {
@@ -9,9 +9,21 @@ export default class PostsList extends React.Component {
   }
 
   componentDidMount() {
+    this.fetchPostsList();
+  }
+
+  fetchPostsList = () => {
     fetch('/api/v1/posts').
       then((response) => response.json()).
       then((posts) =>  this.setState({ posts }));
+  };
+
+  handleDelete = (postId) => {
+    fetch(`/api/v1/posts/${postId}`, { method: 'delete' }).
+      then((response) => {
+        alert('Post deleted successfully')
+        this.fetchPostsList();
+      });
   }
 
   render() {
@@ -26,6 +38,7 @@ export default class PostsList extends React.Component {
               <th>Title</th>
               <th>Description</th>
               <th>Is Published</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -41,6 +54,11 @@ export default class PostsList extends React.Component {
                   </td>
                   <td>{post.description}</td>
                   <td>{post.is_published ? 'Yes' : 'No' }</td>
+                  <td>
+                    <button onClick={() => this.handleDelete(post.id) }>
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               )
             })
