@@ -8,7 +8,6 @@ export default class PostDetails extends React.Component {
   }
 
   componentDidMount() {
-    console.log('this.props', this.props);
     const { match: { params: { id } } } = this.props;
     fetch(`/api/v1/posts/${id}`).
       then((response) => response.json()).

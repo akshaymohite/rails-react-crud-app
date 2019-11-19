@@ -7,6 +7,7 @@ import {
 import HelloWorld from './bundles/HelloWorld/components/HelloWorld';
 import Posts from './bundles/posts/index';
 import PostDetails from './bundles/posts/PostDetails';
+import CreatePost from './bundles/posts/CreatePost';
 
 export default () => {
   return (
@@ -14,6 +15,11 @@ export default () => {
       <Route exact path="/">
         <Posts />
       </Route>
+      <Route
+        path="/posts/new"
+        exact
+        component={CreatePost}
+       />
       <Route
         path="/posts/:id"
         exact
