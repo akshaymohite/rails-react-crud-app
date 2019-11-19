@@ -8,6 +8,7 @@ import HelloWorld from './bundles/HelloWorld/components/HelloWorld';
 import Posts from './bundles/posts/index';
 import PostDetails from './bundles/posts/PostDetails';
 import CreatePost from './bundles/posts/CreatePost';
+import UpdatePost from './bundles/posts/UpdatePost';
 
 export default () => {
   return (
@@ -24,6 +25,11 @@ export default () => {
         path="/posts/:id"
         exact
         component={PostDetails}
+       />
+      <Route
+        path="/posts/:id/edit"
+        exact
+        component={UpdatePost}
        />
     </Switch>
   );
